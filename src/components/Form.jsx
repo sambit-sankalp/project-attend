@@ -16,7 +16,9 @@ const Form = ({ setStudents, students }) => {
       (student) => student.roll === details.roll && !student.hasCheckedOut
     );
 
-    if(isStudentAlreadyPresent) return;
+    if (details.name === '' || details.roll === '') return;
+
+    if (isStudentAlreadyPresent) return;
 
     setStudents((prev) => {
       return [...prev, { ...details, checkInTime: new Date(Date.now()) }];
